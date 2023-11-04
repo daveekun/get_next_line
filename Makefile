@@ -1,23 +1,18 @@
-NAME = get_next_line.a
-CC = cc
-SRC = get_next_line.c get_next_line_utils.c
-OBJ = $(SRC:.c=.o)
-FLAGS = -Wall -Wextra -Werror
+NAME 	= get_next_line.a
+SRC		= get_next_line.c get_next_line_utils.c
+OBJ		= $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -cr $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-%.o: %.c
-	$(CC) $(FLAGS) -c -o $@ $<
+	ar rus $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJ) $(BONUS_OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
 
+.PHONY: all clean fclean re
